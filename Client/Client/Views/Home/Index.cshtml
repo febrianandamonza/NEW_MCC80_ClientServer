@@ -4,22 +4,39 @@
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="card" style="width: 500px; margin: 10px">
-              <div class="card-body">
-                  <h5 class="card-title">Gender</h5>
-                  <canvas id="myChart" style="width:auto;"></canvas>
-              </div>
-          </div>
-    </div>
-    <div class="col-sm">
-        <div class="card" style="width: 1000px; margin: 10px">
-            <div class="card-body">
-                <h5 class="card-title">Jumlah Employee setiap Universitas</h5>
-                <canvas id="myChart2" style="width:auto;"></canvas>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card" style="width: 500px; margin: 10px">
+                <div class="card-body">
+                    <h5 class="card-title">Gender</h5>
+                    <canvas id="myChart" style="width:auto;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card" style="width: 1000px; margin: 10px">
+                <div class="card-body">
+                    <h5 class="card-title">Jumlah Employee setiap Universitas</h5>
+                    <canvas id="myChart2" style="width:auto;"></canvas>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
+
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @if (TempData["Success"] != null){
+    <script type="text/javascript">
+            toastr.success('@TempData["Success"]');
+        </script>
+    }
+
+    
+    
+}
+@section CSS{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+}
