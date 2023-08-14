@@ -1,0 +1,68 @@
+﻿@model API.DTOs.Accounts.LoginDto
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LoginLayout";
+}
+@if (TempData["Success"] != null)
+    {
+        <div class="toast align-items-center text-white bg-success top-0 end-0 border-0" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="d-flex">
+            <div class="toast-body">
+              @TempData["Success"]
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+        </div>
+    }
+
+<div class="row">
+    <div class="col-md-12">
+        <form id="formAuthentication" class="mb-3" action="/Account/Login/" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="control-label form-label"></label>
+                <input asp-for="Email" class="form-control" type="text" placeholder="Enter your email or username" autofocus/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3 form-password-toggle">
+                <div class="d-flex justify-content-between">
+                    <label asp-for="Password" class="control-label form-label"></label>
+                    <a href="#">
+                        <small>Forgot Password?</small>
+                    </a>
+                </div>
+                <div class="input-group input-group-merge">
+                    <input asp-for="Password" class="form-control" type="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <p class="text-center">
+            <span>New on our platform?</span>
+            <a href="auth-register-basic.html">
+                <span>Create an account</span>
+            </a>
+        </p>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @TempData["Success"] = null;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>   
+    <script type="text/javascript">
+        toastr.success('@TempData["Success"]');
+    </script>
+}
+@section CSS{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+}

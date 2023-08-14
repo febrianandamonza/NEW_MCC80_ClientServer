@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Employee";
+  
+}
+<div class="m-4">
+<div class="text-center">
+  <h1 class="align-content-center" id="judul">List Employee</h1>
+</div>
+<div class="text-left">
+    <button class="btn btn-primary" type="button" style="margin-bottom: 5px" onclick="detailSW('${row.url}')" data-bs-toggle="modal" data-bs-target="#modalSW">Create Data</button>
+</div>
+<table id="myTable" class="table table-bordered ">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Nik</th>
+      <th>Full Name</th>
+      <th>Birth Date</th>
+      <th>Gender</th>
+      <th>Hiring Date</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody id="tbodySW"></tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="modalSW" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3 ">
+            <label for="first-name" class="col-form-label">First Name:</label>
+            <input type="text" class="form-control" id="firstName">
+          </div>
+          <div class="mb-3 ">
+            <label for="last-name" class="col-form-label">Last Name:</label>
+            <input type="text" class="form-control" id="lastName">
+          </div>
+          <div class="mb-3 ">
+            <label for="birth-date" class="col-form-label">Birth Date:</label>
+            <input type="text" class="form-control" id="birthDate" placeholder="yyyy-mm-dd">
+          </div>
+          <div class="mb-3 ">
+            <label for="gender" class="col-form-label">Gender:</label>
+            <select class="form-control" id="gender" required>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+          <div class="mb-3 ">
+            <label for="hiring-date" class="col-form-label">Hiring Date:</label>
+            <input type="text" class="form-control" id="hiringDate" placeholder="yyyy-mm-dd">
+          </div>
+          <div class="mb-3 ">
+            <label for="recipient-name" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" id="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3 ">
+            <label for="phone-number" class="col-form-label">Phone Number:</label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="+6565468131">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="Insert()" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

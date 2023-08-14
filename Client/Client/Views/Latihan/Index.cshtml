@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Pokemon";
+}
+<div class="text-center">
+    <img class="pokeball-img img-rounded" id="pokeball-image" src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg">
+    <h1 class="align-content-center" id="judul">Pokemon Dex</h1>
+</div>
+<table class="table table-bordered">
+    <thead class="table-warning   ">
+        <tr>
+            <th class="col-md-1">No</th>
+            <th>Nama</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="tbodySW"></tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="modalSW" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header d-flex flex-column">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            </div>
+            <div class="modal-body">
+                <div class="card" style="width: auto;">
+                    <div class="col-image">
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-about-tab" data-bs-toggle="pill" data-bs-target="#pills-abouts" type="button" role="tab" aria-controls="pills-about" aria-selected="true">Abouts</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-stats-tab" data-bs-toggle="pill" data-bs-target="#pills-stats" type="button" role="tab" aria-controls="pills-stats" aria-selected="false">Base Stats</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-abouts" role="tabpanel" aria-labelledby="pills-abouts-tab">
+                                <div class="aboutsCard"></div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
+                                <div class="progressCard"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

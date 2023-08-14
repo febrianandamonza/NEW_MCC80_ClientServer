@@ -1,0 +1,92 @@
+﻿@model IEnumerable<API.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="m-4">
+    <h1>Data Employee</h1>
+
+    <p>
+        <a class="btn btn-primary" href="employee/create/"> Create New</a>
+    </p>
+    <table class="table" id="employeeTable">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HiringDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HiringDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Guid">Edit</a> |
+                    @*<a asp-action="Details" asp-route-id="@item.Guid">Details</a> |*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.Guid })*@
+                        <a href="/Employee/Delete/@item.Guid">Delete</a>
+                </td>
+            </tr>
+        
+        }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>   
+    <script type="text/javascript">
+        toastr.success('@TempData["Success"]');
+    </script>
+}
+@section CSS{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+}

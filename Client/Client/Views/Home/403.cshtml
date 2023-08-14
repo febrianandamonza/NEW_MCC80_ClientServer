@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_ErorLayout";
+}
+<body>
+
+<div class="container-xxl container-p-y">
+    <div class="misc-wrapper">
+        <h1>403</h1>
+        <h2 class="mb-2 mx-2">FORBIDDEN!!!!</h2>
+        <p class="mb-4 mx-2">it seems you're lost!</p>
+        <a id="countdown"></a>
+    </div>
+</div>
+
+</body>
+
+<script>
+    let timer = 20
+    setInterval(() => {
+        document.getElementById('countdown').innerHTML = timer;
+        timer--;
+
+        if (timer === 0) {
+            location.href = "/";
+        }
+    }, 1000)
+</script>
